@@ -91,6 +91,7 @@ function handleUserItemsEvents(userItem){
 	height: 50dvh;
 	position: absolute;
 	left: 0;
+	top: 50px;
 	margin: 0;
 	list-style: none;
 	z-index: 1000;
@@ -106,6 +107,7 @@ function handleUserItemsEvents(userItem){
 	width: 50%;
 	height: 50dvh;
 	position: absolute;
+	top: 50px;
 	right: 0;
 	margin: 0;
 	list-style: none;
