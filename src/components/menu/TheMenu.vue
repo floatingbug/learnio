@@ -1,5 +1,6 @@
 <script setup>
 import {ref, watch} from "vue";
+import {useRouter} from "vue-router";
 import useUser from "@/stores/userStore.js";
 import MenuButtonBars from "./components/MenuButtonBars.vue";
 import MenuButtonUser from "./components/MenuButtonUser.vue";
@@ -10,6 +11,7 @@ import menuItems from "./data/menuItems.js";
 
 
 const {user, signOutUser} = useUser();
+const router = useRouter();
 const isUserMenuOpen = ref(false);
 const isItemMenuOpen = ref(false);
 
@@ -19,6 +21,7 @@ function handleUserItemsEvents(userItem){
 		signOutUser();
 		isUserMenuOpen.value = false;
 		isItemMenuOpen.value = false;
+		router.push("/welcome");
 	}
 }
 
