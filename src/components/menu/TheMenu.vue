@@ -77,7 +77,7 @@ function handleUserItemsEvents(userItem){
 .menu__menu-bar {
 	width: 100%;
 	height: 50px;
-	position: relative;
+	position: fixed;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
