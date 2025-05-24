@@ -1,7 +1,7 @@
 import signInAPI from "@/api/signInAPI.js";
 
 
-export default async function signIn({credentials, router, errors, user}){
+export default async function signIn({credentials, router, errors, user, setUser}){
 	const result = await signInAPI({credentials});
 
 	if(!result.success){
@@ -13,8 +13,8 @@ export default async function signIn({credentials, router, errors, user}){
 	localStorage.setItem("name", result.data.name);
 
 	user.isSignedIn = true;
-	user.token = result.data.token;
-	user.name = result.data.name;
+
+	setUser(result.data);
 
 	router.push("/dashboard");
 }

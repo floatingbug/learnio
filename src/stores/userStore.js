@@ -8,6 +8,11 @@ const user = reactive({
 });
 
 
+function setUser(newUserData){
+	Object.assign(user, newUserData);
+}
+
+
 function signOutUser(){
 	localStorage.removeItem("isSignedIn");
 	localStorage.removeItem("token");
@@ -21,5 +26,5 @@ function signOutUser(){
 
 export default function useUser(){
 
-	return {user, signOutUser};
+	return {user, signOutUser, setUser};
 }

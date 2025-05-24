@@ -6,7 +6,7 @@ import useUser from "@/stores/userStore.js";
 import ErrorsDisplay from "@/components/ErrorsDisplay.vue";
 
 
-const {user} = useUser();
+const {user, setUser} = useUser();
 const router = useRouter();
 const credentials = reactive({
 	nameOrEmail: "",
@@ -21,6 +21,7 @@ async function triggerSignIn(){
 	const result = await signIn({
 		credentials: rawCredentials,
 		user,
+		setUser,
 		router,
 		errors,
 	});
