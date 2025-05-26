@@ -1,4 +1,4 @@
-import useFetch from "./useFetch.js";
+import useFetch from "@/api/useFetch.js";
 
 
 export default async function signInAPI({credentials}){

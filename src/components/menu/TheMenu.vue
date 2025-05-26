@@ -23,6 +23,11 @@ function handleUserItemsEvents(userItem){
 		isItemMenuOpen.value = false;
 		router.push("/welcome");
 	}
+	else if(userItem.id === "settings"){
+		router.push("/user/settings");
+	}
+
+	isUserMenuOpen.value = false;
 }
 
 </script>
@@ -43,7 +48,7 @@ function handleUserItemsEvents(userItem){
 			v-for="(menuItem, index) in menuItems"
 			:key="index"
 		>
-			<RouterLink :to="menuItem.url">
+			<RouterLink :to="menuItem.url" @click="isItemMenuOpen = false;">
 				{{menuItem.label}}
 			</RouterLink>
 		</li>
@@ -112,6 +117,11 @@ function handleUserItemsEvents(userItem){
 	position: absolute;
 	top: 50px;
 	right: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	padding: 2rem 0;
 	margin: 0;
 	list-style: none;
 	z-index: 1000;

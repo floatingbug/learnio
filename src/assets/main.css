@@ -55,7 +55,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-bottom: 12rem;
+	padding: 0rem 1rem 12rem 1rem;
 
 	h1 {
 		text-align: center;
@@ -72,4 +72,10 @@ p {
 	border-radius: 30px;
 	font-family: Roboto;
 	color: var(--text-color-light);
+}
+
+.button__change-setting {
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	background-color: var(--secondary-color-coral);
 }

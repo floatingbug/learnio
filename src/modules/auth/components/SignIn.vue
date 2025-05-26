@@ -1,7 +1,7 @@
 <script setup>
 import {ref, reactive, toRaw} from "vue";
 import {useRouter} from "vue-router";
-import signIn from "../api/signIn.js";
+import signInAPI from "../api/signInAPI.js";
 import useUser from "@/stores/userStore.js";
 import ErrorsDisplay from "@/components/ErrorsDisplay.vue";
 
@@ -18,13 +18,20 @@ const errors = ref([]);
 async function triggerSignIn(){
 	const rawCredentials = toRaw(credentials);
 
-	const result = await signIn({
-		credentials: rawCredentials,
-		user,
-		setUser,
-		router,
-		errors,
-	});
+	const result = await signInAPI({credentials: rawCredentials});
+	
+	if(!result.success){
+		return errors.value = ["Wrong credentials"];
+	}
+	
+	localStorage.setItem("isSignedIn", true);
+	localStorage.setItem("token", result.data.token);
+
+	user.isSignedIn = true;
+
+	setUser(result.data);
+
+	router.push("/dashboard");
 }
 
 </script>

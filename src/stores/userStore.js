@@ -2,9 +2,14 @@ import {reactive} from "vue";
 
 
 const user = reactive({
-	name: "",
-	token: "",
-	isSignedIn: false,
+    userId: "",
+ 	name: "",
+    age: "",
+    token: "",
+    isSignedIn: false,
+    chest: [],
+    xp: 0,
+    avatar: "",
 });
 
 

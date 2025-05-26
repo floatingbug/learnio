@@ -3,14 +3,13 @@ import useUser from "@/stores/userStore.js";
 
 
 const {user} = useUser();
-console.log(user);
 
 </script>
 
 
 <template>    
 	<div class="layout">
-		<div class="dashboard">
+		<div class="dashboard" v-if="user">
 			<h1>{{user.name}}, age:{{user.age}} </h1>
 
 			<div class="dashboard__user-info">
