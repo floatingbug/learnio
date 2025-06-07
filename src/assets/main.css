@@ -79,3 +79,16 @@ p {
 	padding: 0.5rem 1rem;
 	background-color: var(--secondary-color-coral);
 }
+
+.form-input {
+	height: 30px;
+	border-radius: 30px;
+	border: 0;
+	padding: 0 1rem;
+	background: var(--surface-color-1);
+}
+
+.form-input::placeholder {
+	text-align: center;
+	color: black;
+}

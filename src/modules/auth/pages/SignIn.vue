@@ -15,7 +15,7 @@ const credentials = reactive({
 const errors = ref([]);
 
 
-async function triggerSignIn(){
+async function signIn(){
 	const rawCredentials = toRaw(credentials);
 
 	const result = await signInAPI({credentials: rawCredentials});
@@ -55,7 +55,7 @@ async function triggerSignIn(){
 			<ErrorsDisplay :errors="errors" />
 
 			<button
-				@click="triggerSignIn"
+				@click="signIn"
 			>
 				Sign in
 			</button>
@@ -68,7 +68,6 @@ async function triggerSignIn(){
 .sign-in {
 	display: flex;
 	flex-direction: column;
-	margin-top: 4rem;
 	
 	h1 {
 		text-align: center;
@@ -85,7 +84,7 @@ async function triggerSignIn(){
 	display: flex;
 
 	label {
-		min-width: 100px;
+		min-width: 120px;
 	}
 }
 </style>

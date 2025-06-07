@@ -19,7 +19,7 @@
 			
 				<RouterLink 
 					class="button__primary button__primary--new-account" 
-					to="/auth/sign-up"
+					to="/auth/core-data"
 				>
 					New Account
 				</RouterLink>
@@ -36,8 +36,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: flex-end;
 	padding-bottom: 4rem;
+
+	h1 {
+		margin-top: 40dvh;
+	}
 }
 
 .welcome__sign-buttons {
@@ -54,6 +57,7 @@
 
 .button__primary--login-in {
 	background-color: var(--primary-color-purple);
+	margin-top: 4rem;
 }
 
 .button__primary--new-account {

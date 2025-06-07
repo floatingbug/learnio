@@ -3,11 +3,6 @@
 
 
 <template>    
-	<RouterLink
-		to="/auth/sign-in"
-	>
-		Login
-	</RouterLink>
 </template>   
 
 

@@ -1,6 +1,8 @@
 import AuthView from "../AuthView.vue";
-import SignIn from "../components/SignIn.vue";
-import SignUp from "../components/SignUp.vue";
+import SignIn from "../pages/SignIn.vue";
+import CoreDataForm from "../pages/CoreDataForm.vue";
+import AgeForm from "../pages/AgeForm.vue";
+import AvatarForm from "../pages/AvatarForm.vue";
 
 
 export default [
@@ -13,8 +15,16 @@ export default [
 				component: SignIn,
 			},
 			{
-				path: "sign-up",
-				component: SignUp,
+				path: "core-data",
+				component: CoreDataForm,
+			},
+			{
+				path: "age-data",
+				component: AgeForm,
+			},
+			{
+				path: "select-avatar",
+				component: AvatarForm,
 			},
 		],
 	},

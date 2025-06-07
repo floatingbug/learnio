@@ -4,9 +4,9 @@
 
 <template>    
 	<RouterLink 
-		to="/auth/sign-up"
+		to="/auth/core-data"
 	>
-		Sign up
+		New Account
 	</RouterLink>
 </template>   
 
