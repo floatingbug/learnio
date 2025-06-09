@@ -1,16 +1,30 @@
 <script setup>
+import {ref, watch} from "vue";
 import useAuthStore from "../stores/useAuthStore.js";
 import {useRouter} from "vue-router";
+import checkNameAvailableAPI from "../api/checkNameAvailableAPI.js";
 
 
 const {credentials, indicatorBoxes} = useAuthStore();
 const router = useRouter();
+const errors = ref([]);
 
 
-function nextPage(){
+watch(() => credentials.name, () => {
+	errors.value = [];
+});
+
+
+async function nextPage(){
+	// check if name is available
+	const isNameAvailable = await checkNameAvailableAPI({name: credentials.name});
+	if(credentials.name === "") return errors.value.push("Please enter your name.");
+	else if(!isNameAvailable) return errors.value.push("Name is already in use.");
+
 	indicatorBoxes.value.find(box => box.id === "age").isActive = true;
 	router.push("/auth/age-data");
 }
+
 
 </script>
 
@@ -18,6 +32,10 @@ function nextPage(){
 <template>    
 	<div class="sign-up">
 		<h1>What's your name, friend?</h1>
+
+		<div class="errors" v-if="errors.length > 0">
+			<div class="error" v-for="(error, index) in errors" :key="index">{{error}}</div>
+		</div>
 
 		<div class="sign-up__inputs">
 
@@ -60,5 +78,12 @@ function nextPage(){
 
 .form-input-core-data {
 	width: 90%;
+}
+
+.errors {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem 0;
 }
 </style>

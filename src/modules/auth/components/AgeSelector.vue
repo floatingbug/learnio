@@ -19,8 +19,6 @@ onMounted(async () => {
 		});
 	}
 
-	console.log(items.value);
-
 	// add buffer
 	items.value.unshift({});
 	items.value.unshift({});
@@ -30,7 +28,8 @@ onMounted(async () => {
 	await nextTick();
 	
 	const ageSelector = document.querySelector(".age-selector-container");
-	ageSelector.scrollTop = 100;
+	if(credentials.age !== 0) ageSelector.scrollTop = 50 * (credentials.age -1);
+	else ageSelector.scrollTop = 100;
 
 	// select logic
     function updateActiveItem(){

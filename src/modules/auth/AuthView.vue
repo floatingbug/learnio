@@ -1,10 +1,32 @@
 <script setup>
 import {ref} from "vue";
-import {RouterView} from "vue-router";
+import {RouterView, useRouter} from "vue-router";
 import useAuthStore from "./stores/useAuthStore.js";
 
 
 const {credentials, indicatorBoxes} = useAuthStore();
+const router = useRouter();
+
+
+function changeAuthPage(box){
+	if(box.id === "name"){
+		for(let i = 1; i < indicatorBoxes.value.length; i++){
+			indicatorBoxes.value[i].isActive = false;
+		}
+
+		router.push("/auth/core-data");
+	}
+	else if(box.id === "age"){
+		for(let i = 2; i < indicatorBoxes.value.length; i++){
+			indicatorBoxes.value[i].isActive = false;
+		}
+
+		router.push("/auth/age-data");
+	}
+	else if(box.id === "avatar"){
+		router.push("select-avatar");
+	}
+}
 
 </script>
 
@@ -18,6 +40,7 @@ const {credentials, indicatorBoxes} = useAuthStore();
 					v-for="(box, index) in indicatorBoxes"
 					:key="index"
 					:style="box.isActive ? {backgroundColor: box.background} : {}"
+					@click="changeAuthPage(box)"
 				>
 				</div>
 			</div>
@@ -49,5 +72,6 @@ const {credentials, indicatorBoxes} = useAuthStore();
 	width: 48px;
 	height: 7px;
 	border-radius: 26px;
+	cursor: pointer;
 }
 </style>

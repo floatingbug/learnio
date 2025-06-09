@@ -4,7 +4,7 @@ import {reactive, ref} from "vue";
 const credentials = reactive({
 	name: "",
 	age: 0,
-	avatarId: "",
+	avatarId: 0,
 });
 
 const indicatorBoxes = ref([
