@@ -17,6 +17,9 @@ onMounted(async () => {
 	avatars.value = fetchedAvatars.data;
 
 	currAvatar.value = avatars.value.filter(avatar => avatar.id === 0)[0];
+
+	console.log(avatars.value);
+	console.log(BACKEND_RESOURCE_PATH);
 });
 
 </script>
