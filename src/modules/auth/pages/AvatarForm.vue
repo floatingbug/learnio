@@ -6,7 +6,7 @@ import AvatarSelection from "../components/AvatarSelection.vue";
 
 
 const {credentials, indicatorBoxes} = useAuthStore();
-const avatars = ref(null);
+const avatars = ref([]);
 const currAvatar = ref(null);
 const BACKEND_RESOURCE_PATH = ref(`${import.meta.env.VITE_BACKEND_URL}`);
 const avatarSelectionTrigger = ref(1);
@@ -16,10 +16,7 @@ onMounted(async () => {
 	const fetchedAvatars = await getAvatarsAPI();
 	avatars.value = fetchedAvatars.data;
 
-	currAvatar.value = avatars.value.filter(avatar => avatar.id === 0)[0];
-
-	console.log(avatars.value);
-	console.log(BACKEND_RESOURCE_PATH);
+   	currAvatar.value = avatars.value.filter(avatar => avatar.id === 0)[0];
 });
 
 </script>
