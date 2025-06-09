@@ -34,7 +34,7 @@ onMounted(async () => {
 				class="curr-avatar"
 				@click="avatarSelectionTrigger *= -1;"
 			>
-				<img :src="`${BACKEND_RESOURCE_PATH}/avatars/${currAvatar.path}`" alt="">
+				<img :src="`${BACKEND_RESOURCE_PATH}/resource/avatars/${currAvatar.path}`" alt="">
 			</div>
 		</div>
 

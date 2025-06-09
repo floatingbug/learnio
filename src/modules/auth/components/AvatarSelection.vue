@@ -67,7 +67,7 @@ function cancelSelection(){
 						:key="index"
 					>
 						<div class="img-container">
-							<img :src="`${BACKEND_RESOURCE_PATH}/avatars/${avatar.path}`" alt="">
+							<img :src="`${BACKEND_RESOURCE_PATH}/resource/avatars/${avatar.path}`" alt="">
 						</div>
 					</div>
 				</div>
